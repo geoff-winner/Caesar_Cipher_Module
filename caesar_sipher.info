@@ -1,0 +1,5 @@
+name = Caesar Sipher
+description = Basic Encryption Method applied to a Drupal Module.
+package = Assessment 9
+core = 7.x
+files[] = caesar_sipher.module

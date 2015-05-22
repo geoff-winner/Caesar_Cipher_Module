@@ -1,0 +1,52 @@
+<?php
+
+function caesar_sipher_menu() {
+    $items = array();
+        $items['caesar_sipher'] = array(
+        'title' => 'Encrypt Your Text!',
+        'description' => 'Uses the Caesar Sipher to scramble your text',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('caesar_sipher_form'),
+        'access callback' => 'TRUE',
+        'type' => MENU_NORMAL_ITEM,
+    );
+
+    $items['done'] = array(
+        'title' => 'Done!',
+        'page callback' => 'caesar_sipher_done',
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+    );
+
+    return $items;
+}
+
+function caesar_sipher_form() {
+    $form['shift_value'] = array(
+        '#title' => 'Shift Value',
+        '#type' = > 'textfield',
+        '#description' => 'Number of Spaces you wish to shift each letter over',
+        '#required' => TRUE,
+    );
+
+    $form['shift_direction'] = array(
+        '#title' => 'Shift Direction',
+        '#type' => 'textfield',
+        '#description' => 'Left or Right Shift',
+        '#required' => TRUE,
+    );
+
+    $form['user_input'] = array(
+        '#title' => 'Text to be Encrypted',
+        '#type' => 'textfield',
+        '#description' => 'Enter the Word(s) you would like to scramble',
+        '#required' => TRUE,
+    );
+
+    $form['submit'] = array(
+        '#type' => 'submit',
+        '#value' => 'Encrypt',
+    );
+
+    return $form;
+}
