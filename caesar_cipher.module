@@ -63,7 +63,7 @@ function caesar_cipher_form_submit($form, &$form_state) {
     $split_input = str_split($input);
 
         for($i=0; $i<strlen($input); $i++) {
-            $output.= $alphabet[($reverse_alphabet[$split_input[$i]] + 5) % 26];
+            $output.= $alphabet[($reverse_alphabet[$split_input[$i]] + $shift_value) % 26];
         }
 
     $_SESSION['final_output'] = $output;
