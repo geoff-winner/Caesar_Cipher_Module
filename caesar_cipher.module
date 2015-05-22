@@ -24,7 +24,7 @@ function caesar_cipher_menu() {
 function caesar_cipher_form() {
     $form['shift_value'] = array(
         '#title' => 'Shift Value',
-        '#type' = > 'textfield',
+        '#type' => 'textfield',
         '#description' => 'Number of Spaces you wish to shift each letter over',
         '#required' => TRUE,
     );
