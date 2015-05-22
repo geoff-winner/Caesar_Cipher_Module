@@ -1,5 +1,5 @@
-name = Caesar Sipher
+name = Caesar Cipher
 description = Basic Encryption Method applied to a Drupal Module.
 package = Assessment 9
 core = 7.x
-files[] = caesar_sipher.module
+files[] = caesar_cipher.module
