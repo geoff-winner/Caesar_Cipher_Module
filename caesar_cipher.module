@@ -74,7 +74,9 @@ function caesar_cipher_form_submit($form, &$form_state) {
         $output = "There Was an Error";
     }
 
-    $_SESSION['final_output'] = $final_output;
+    $final_output = rtrim($output);
+
+    $_SESSION['final_output'] = $output;
     $form_state['redirect'] = 'done';
 }
 
