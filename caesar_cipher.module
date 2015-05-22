@@ -61,21 +61,20 @@ function caesar_cipher_form_submit($form, &$form_state) {
     $shift_direction = strtolower($shift_direction);
     $input = strtolower($input);
     $split_input = str_split($input);
-    $trimmed_input = rtrim($split_input, " ");
 
     if($shift_direction == 'left'){
-        for($i=0; $i<strlen($trimmed_input); $i++) {
-            $output.= $alphabet[($reverse_alphabet[$trimmed_input[$i]] - $shift_value) % 26];
+        for($i=0; $i<strlen($input); $i++) {
+            $output.= $alphabet[($reverse_alphabet[$split_input[$i]] - $shift_value) % 26];
         }
     } else if($shift_direction == 'right') {
-        for($i=0; $i<strlen($trimmed_input); $i++) {
-            $output.= $alphabet[($reverse_alphabet[$trimmed_input[$i]] + $shift_value) % 26];
+        for($i=0; $i<strlen($input); $i++) {
+            $output.= $alphabet[($reverse_alphabet[$split_input[$i]] + $shift_value) % 26];
         }
     } else {
         $output = "There Was an Error";
     }
 
-    $_SESSION['final_output'] = $output;
+    $_SESSION['final_output'] = $final_output;
     $form_state['redirect'] = 'done';
 }
 
