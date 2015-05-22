@@ -61,10 +61,11 @@ function caesar_cipher_form_submit($form, &$form_state) {
     $output = " ";
 
     $input = strtolower($input);
+    $length = strlen($input);
     $exploded_input = explode(" ", $input);
 
     if($shift_value == 1) {
-        for($i = 0;$i<$exploded_input; $i++) {
+        for($i = 0;$i<$length; $i++) {
             if(in_array($exploded_input[$i], $alphabet_one[$i])) {
                 array_push($output, $exploded_input);
         }
