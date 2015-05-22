@@ -53,7 +53,7 @@ function caesar_cipher_form() {
 }
 
 function element_validate_specific_text($element) {
-    if($element['#value']['shift_direction'] != ('right' || 'left')) {
+    if($element['#value'] != ('right' || 'left')) {
         form_error($element, t('Please enter Left or Right'));
     }
 }
