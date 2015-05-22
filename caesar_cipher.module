@@ -41,6 +41,7 @@ function caesar_cipher_form() {
         '#title' => 'Text to be Encrypted',
         '#type' => 'textfield',
         '#description' => 'Enter the Word(s) you would like to scramble',
+        '#element_validate' => array('element_validate_required_characters'),
         '#required' => TRUE,
     );
 
@@ -55,6 +56,12 @@ function caesar_cipher_form() {
 function element_validate_specific_text($element) {
     if($element['#value'] != ('right' || 'left')) {
         form_error($element, t('Please enter Left or Right'));
+    }
+}
+
+function element_validate_required_characters($element) {
+    if(in_array(array(' ', '/', ':', ';', '*', '&', '$', '#', '@', '!'), $input)) {
+        form_error($element, t('Please ReEnter without special characters'));
     }
 }
 
