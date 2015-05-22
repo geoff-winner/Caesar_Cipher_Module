@@ -67,7 +67,14 @@ function caesar_cipher_form_submit($form, &$form_state) {
             for($i=0; $i<strlen($input); $i++) {
                 $output.= $alphabet_one[$split_input[$i]];
             }
-        }
+        } else if($shift_value == 2) {
+            for($i=0; $i<strlen($input); $i++) {
+                $output.= $alphabet_two[$split_input[$i]];
+            }
+        } else if($shift_value == 3) {
+            for($i=0; $i<strlen($input); $i++) {
+                $output.= $alphabet_three[$split_input[$i]];
+            }
 
     $_SESSION['final_output'] = $output;
     $form_state['redirect'] = 'done';
