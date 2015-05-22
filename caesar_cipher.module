@@ -58,4 +58,10 @@ function caesar_cipher_form_submit($form, &$form_state) {
 
     $exploded_input = explode(" ", $input);
 
+    $_SESSION['exploded_input'] = $exploded_input;
+    $form_state['redirect'] = 'done';
+}
+
+function caesar_cipher_done() {
+    return $_SESSION['exploded_input'];
 }
