@@ -54,13 +54,29 @@ function caesar_cipher_form_submit($form, &$form_state) {
     $shift_value = $form_state['values']['shift_value'];
     $shift_direction = $form_state['values']['shift_direction'];
     $input = $form_state['values']['user_input'];
+    $alphabet  = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    $alphabet_one  = ['a' => 'b','b' => 'c','c' => 'd','d' => 'e','e' => 'f','f' => 'g','g' => 'h','h' =? 'i','i' => 'i','j' => 'k','k' => 'l','l' => 'm','m' => 'n','n' => 'o','o' => 'p','p' => 'q','q' =>'r','r' => 's','s' => 't','t' => 'u','u' => 'v','v' => 'w','w' => 'x','x' => 'y','y' => 'z','z' => 'a'];
+    $alphabet_two  = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    $alphabet_three  = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    $output = " ";
 
+    $input = strtolower($input);
     $exploded_input = explode(" ", $input);
+    $length = strlen($exploded_input);
 
-    $_SESSION['exploded_input'] = $exploded_input;
+    if($shift_value == 1) {
+        for($i = 0;$i<$length; $i++) {
+            if(in_array($exploded_input[$i], $alphabet_one) {
+                array_push($output, $exploded_input);
+        }
+    }
+}
+
+    $final_output = ucfirst($output;)
+    $_SESSION['final_output'] = $final_output;
     $form_state['redirect'] = 'done';
 }
 
 function caesar_cipher_done() {
-    return $_SESSION['exploded_input'];
+    return $_SESSION['final_output'];
 }
