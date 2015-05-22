@@ -25,6 +25,7 @@ function caesar_cipher_form() {
         '#title' => 'Shift Value',
         '#type' => 'textfield',
         '#description' => 'Number of Spaces you wish to shift each letter over',
+        '#element_validate' => array('element_validate_integer_positive'),
         '#required' => TRUE,
     );
 
@@ -73,7 +74,9 @@ function caesar_cipher_form_submit($form, &$form_state) {
         $output = "There Was an Error";
     }
 
-    $_SESSION['final_output'] = $output;
+    $final_output = rtrim($output);
+
+    $_SESSION['final_output'] = $final_output;
     $form_state['redirect'] = 'done';
 }
 
