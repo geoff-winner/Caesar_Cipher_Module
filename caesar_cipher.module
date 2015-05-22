@@ -60,6 +60,7 @@ function caesar_cipher_form_submit($form, &$form_state) {
     $output = " ";
     $shift_direction = strtolower($shift_direction);
     $input = strtolower($input);
+    $input = rtrim($input);
     $split_input = str_split($input);
 
     if($shift_direction == 'left'){
@@ -73,8 +74,6 @@ function caesar_cipher_form_submit($form, &$form_state) {
     } else {
         $output = "There Was an Error";
     }
-
-    $final_output = rtrim($output);
 
     $_SESSION['final_output'] = $final_output;
     $form_state['redirect'] = 'done';
