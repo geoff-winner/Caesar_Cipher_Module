@@ -70,11 +70,11 @@ function caesar_cipher_form_submit($form, &$form_state) {
     }
 
     // $imploded_output = implode($output);
-    // $final_output = ucfirst($imploded_output);
     $_SESSION['final_output'] = $output;
     $form_state['redirect'] = 'done';
 }
 
 function caesar_cipher_done() {
+    "<p>this works</p>";
     return $_SESSION['final_output'];
 }
