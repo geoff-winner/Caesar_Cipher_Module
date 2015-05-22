@@ -60,7 +60,7 @@ function caesar_cipher_form_submit($form, &$form_state) {
     $output = " ";
     $shift_direction = strtolower($shift_direction);
     $input = strtolower($input);
-    $trimmed_input = rtrim($input);
+    $trimmed_input = rtrim($input, " ");
     $split_input = str_split($trimmed_input);
 
     if($shift_direction == 'left'){
