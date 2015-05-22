@@ -61,7 +61,8 @@ function element_validate_specific_text($element) {
 
 function element_validate_required_characters($element) {
     $input = str_split($element['#value']);
-    if(in_array(array(' ', '/', ':', ';', '*', '&', '$', '#', '@', '!'), $input)) {
+    $special_characters = [' ', '/', ':', ';', '*', '&', '$', '#', '@', '!'];
+    if(in_array($special_characters, $input)) {
         form_error($element, t('Please ReEnter without special characters'));
     }
 }
