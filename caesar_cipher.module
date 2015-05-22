@@ -33,6 +33,7 @@ function caesar_cipher_form() {
         '#title' => 'Shift Direction',
         '#type' => 'textfield',
         '#description' => 'Left or Right Shift',
+        '#element_validate' => array('element_validate_specific_text'),
         '#required' => TRUE,
     );
 
@@ -49,6 +50,12 @@ function caesar_cipher_form() {
     );
 
     return $form;
+}
+
+function element_validate_specific_text($element) {
+    if($element['#value']['shift_direction'] != ('right' || 'left')) {
+        form_error($element, t('Please enter Left or Right'));
+    }
 }
 
 function caesar_cipher_form_submit($form, &$form_state) {
@@ -73,8 +80,6 @@ function caesar_cipher_form_submit($form, &$form_state) {
     } else {
         $output = "There Was an Error";
     }
-
-    $final_output = rtrim($output);
 
     $_SESSION['final_output'] = $output;
     $form_state['redirect'] = 'done';
