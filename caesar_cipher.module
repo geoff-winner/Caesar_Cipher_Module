@@ -4,10 +4,9 @@ function caesar_cipher_menu() {
     $items = array();
         $items['caesar_cipher'] = array(
         'title' => 'Encrypt Your Text!',
-        'description' => 'Uses the Caesar Cipher to scramble your text',
         'page callback' => 'drupal_get_form',
         'page arguments' => array('caesar_cipher_form'),
-        'access callback' => 'TRUE',
+        'access callback' => TRUE,
         'type' => MENU_NORMAL_ITEM,
     );
 
