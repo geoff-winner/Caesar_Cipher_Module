@@ -56,14 +56,12 @@ function caesar_cipher_form_submit($form, &$form_state) {
     $input = $form_state['values']['user_input'];
     $alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
     $reverse_alphabet = array_flip($alphabet);
-
     $output = " ";
-
     $input = strtolower($input);
     $split_input = str_split($input);
 
         for($i=0; $i<strlen($input); $i++) {
-            $output.= $alphabet[($reverse_alphabet[$split_input[$i]] + $shift_value) % 26];
+            $output.= $alphabet[($reverse_alphabet[$split_input[$i]] - $shift_value) % 26];
         }
 
     $_SESSION['final_output'] = $output;
